@@ -84,8 +84,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/api/**/**").permitAll()
         //Permisos a diferentes path
                 .antMatchers("/api/movieDelete/**").permitAll()
-//                .antMatchers("/api/movieId/**").permitAll()
-//                .antMatchers("/login").permitAll()
+                .antMatchers("/api/**").permitAll()
+               .antMatchers("/api/login").permitAll()
+                .antMatchers("/api/register").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
