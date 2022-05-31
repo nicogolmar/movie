@@ -43,7 +43,7 @@ public class AuthController {
         this.jwtTokenUtil = jwtTokenUtil;
     }
 
-    @PostMapping("/api/login")
+    @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest loginRequest){
 
         Authentication authentication = authManager.authenticate(
@@ -56,7 +56,7 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(jwt));
     }
 
-    @PostMapping("/api/register")
+    @PostMapping("/register")
     public ResponseEntity<MessageResponse> register(@RequestBody RegisterRequest signUpRequest) {
 
         // Check 1: username
