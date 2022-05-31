@@ -81,12 +81,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/**/**").permitAll()
+                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
         //Permisos a diferentes path
-                .antMatchers("/api/movie/create/").permitAll()
-                .antMatchers("/api/**").permitAll()
-               .antMatchers("/api/login").permitAll()
-                .antMatchers("/api/register").permitAll()
+                .antMatchers("/api/movies").permitAll()
+               .antMatchers("/api/movieId/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
