@@ -23,7 +23,7 @@ public class restController {
     }
 
 
-    @GetMapping("/home")
+    @GetMapping("/api/home")
     public List<Movie> findAll() {
         return repositoryMovies.findAll();
     }

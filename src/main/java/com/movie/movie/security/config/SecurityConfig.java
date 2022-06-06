@@ -83,7 +83,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
         //Permisos a diferentes path
-                .antMatchers("/home").permitAll()
+                .antMatchers("/api/home").permitAll()
                .antMatchers("/api/movieId/**").permitAll()
                 .anyRequest().authenticated();
 
